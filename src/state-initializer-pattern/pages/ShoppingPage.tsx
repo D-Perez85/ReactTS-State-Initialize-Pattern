@@ -19,7 +19,8 @@ const ShoppingPage = () => {
             onChange={onProductCountChange} 
             key={product.id}
             initialValues={{
-              count: 4}}>
+              count: 4,
+              maxCount: 10}}>
           <ProductImg className="custom-image" style={{ boxShadow: "10px 10px 10px rgba(0,0,0,0.2)" }}/>
               <ProductTitle title={product.title} className="text-white text-bold"/>
               <ProductButtons className="custom-buttons"/>

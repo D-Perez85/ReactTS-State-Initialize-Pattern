@@ -8,6 +8,7 @@ export interface ProductContextProps {
     product: Product,
     counter: number,
     increaseBy: (value:number)=> void,
+    maxCount?: number
   }
 
   export interface onChangeArgs {
