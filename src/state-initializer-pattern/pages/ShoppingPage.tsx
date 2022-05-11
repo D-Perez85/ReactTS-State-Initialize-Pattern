@@ -13,7 +13,13 @@ const ShoppingPage = () => {
       <hr />
       <div style={{ display: "flex", flexDirection: "row", flexWrap: "wrap" }}>
        {products.map((product)=>(
-          <ProductCard product={product} className="bg-dark text-white" onChange={onProductCountChange} key={product.id}>
+          <ProductCard 
+            product={product} 
+            className="bg-dark text-white" 
+            onChange={onProductCountChange} 
+            key={product.id}
+            initialValues={{
+              count: 4}}>
           <ProductImg className="custom-image" style={{ boxShadow: "10px 10px 10px rgba(0,0,0,0.2)" }}/>
               <ProductTitle title={product.title} className="text-white text-bold"/>
               <ProductButtons className="custom-buttons"/>

@@ -15,4 +15,7 @@ export interface ProductContextProps {
     count: number
   }
 
- 
+  export interface InitialValues {
+    count?: number;
+    maxCount?: number;
+  }
