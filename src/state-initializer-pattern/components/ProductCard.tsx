@@ -6,8 +6,15 @@ import styles from "../styles/styles.module.css";
 export const ProductContext = createContext({} as ProductContextProps);
 const { Provider } = ProductContext;
 
+export interface ProductCardHandlers {
+  count: number,
+  maxCount?: number;
+  product: Product
+  increaseBy : (value : number) => void
+}
+
 export interface Props {
-  children: ReactElement | ReactElement[];
+  children: ( args: ProductCardHandlers ) => JSX.Element,
   className?: string;
   product: Product;
   style?: CSSProperties;
@@ -20,7 +27,13 @@ export interface Props {
         return (
           <Provider value={{ product, counter,increaseBy }}>
             <div className={`${styles.productCard} ${className}`} style={style}>
-              {children}
+            {children({
+                count: counter,
+                maxCount: initialValues?.maxCount, 
+                product,
+                increaseBy
+                 })
+                }
             </div>
           </Provider>
         );
