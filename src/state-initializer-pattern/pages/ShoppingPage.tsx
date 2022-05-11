@@ -5,7 +5,7 @@ import { Product } from "../interfaces/interfaces";
 
 const ShoppingPage = () => {
   const onProductCountChange = ({ count, product }: {count: number; product: Product;}) => {
-    console.log("onProductCountChange", count, product);
+    // console.log("onProductCountChange", count, product);
   };
   return (
     <div>
@@ -20,7 +20,7 @@ const ShoppingPage = () => {
             key={product.id}
             initialValues={{ count: 4, maxCount: 10}}>
 
-                {({ reset, increaseBy }) => (
+                {({ reset, increaseBy, isMaxCountReached }) => (
                   <>
                     <ProductImg
                       className="custom-image"
@@ -30,9 +30,11 @@ const ShoppingPage = () => {
                       className="text-white text-bold"/>
                     <ProductButtons className="custom-buttons" />
                     <div style={{display: "flex" ,flexDirection: "row", flexWrap: "wrap", justifyContent: "center"}}>
+                    {!isMaxCountReached && (
                       <button onClick={()=> increaseBy(2)} 
                         className="custom-image"
                         style={{ boxShadow: "10px 10px 10px rgba(0,0,0,0.2)" }}> + 2 </button>
+              )}
                       <button onClick={()=> increaseBy(-2)} 
                         className="custom-image"
                         style={{ boxShadow: "10px 10px 10px rgba(0,0,0,0.2)" }}> - 2 </button>

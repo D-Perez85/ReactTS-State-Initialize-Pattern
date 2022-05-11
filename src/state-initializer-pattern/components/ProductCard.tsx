@@ -8,7 +8,8 @@ const { Provider } = ProductContext;
 
 export interface ProductCardHandlers {
   count: number,
-  maxCount?: number;
+  maxCount?: number,
+  isMaxCountReached: boolean,
   product: Product, 
   increaseBy : (value : number) => void, 
   reset : () => void,
@@ -24,16 +25,17 @@ export interface Props {
  }
 
  export const ProductCard = ({ children, product, className, style, onChange, initialValues}: Props) => {
-  const{counter,increaseBy, reset, maxCount} = useProduct({onChange, product, initialValues});
+  const{counter,increaseBy, reset, maxCount, isMaxCountReached} = useProduct({onChange, product, initialValues});
         return (
-          <Provider value={{ product, counter,increaseBy }}>
+          <Provider value={{ product, counter,increaseBy, maxCount }}>
             <div className={`${styles.productCard} ${className}`} style={style}>
             {children({
                 count: counter,
                 maxCount: initialValues?.maxCount, 
                 product,
                 increaseBy,
-                reset
+                reset, 
+                isMaxCountReached
                  })
                 }
             </div>

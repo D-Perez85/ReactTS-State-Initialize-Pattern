@@ -37,6 +37,7 @@ interface useProductArgs {
             counter,
             increaseBy,
             maxCount: initialValues?.maxCount,
+            isMaxCountReached: !!initialValues?.count && initialValues.maxCount === counter,
             reset,
         };
     };
