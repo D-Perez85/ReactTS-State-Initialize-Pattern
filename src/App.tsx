@@ -1,9 +1,10 @@
 import React from 'react';
- 
+import Navigation from './routes/Navigation';
+
 function App() {
   return (
     <div>
-      <h2>STATE INITTIALIZER PATTERN</h2>
+      <Navigation/>
     </div>
   );
 }
