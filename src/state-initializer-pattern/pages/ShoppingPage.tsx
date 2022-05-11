@@ -20,7 +20,7 @@ const ShoppingPage = () => {
             key={product.id}
             initialValues={{ count: 4, maxCount: 10}}>
 
-                {({ count }) => (
+                {({ reset, increaseBy }) => (
                   <>
                     <ProductImg
                       className="custom-image"
@@ -29,10 +29,20 @@ const ShoppingPage = () => {
                       title={product.title}
                       className="text-white text-bold"/>
                     <ProductButtons className="custom-buttons" />
-                      <span>{count}</span>        
+                    <div style={{display: "flex" ,flexDirection: "row", flexWrap: "wrap", justifyContent: "center"}}>
+                      <button onClick={()=> increaseBy(2)} 
+                        className="custom-image"
+                        style={{ boxShadow: "10px 10px 10px rgba(0,0,0,0.2)" }}> + 2 </button>
+                      <button onClick={()=> increaseBy(-2)} 
+                        className="custom-image"
+                        style={{ boxShadow: "10px 10px 10px rgba(0,0,0,0.2)" }}> - 2 </button>
+                      <button onClick={reset} 
+                        className="custom-image"
+                        style={{ boxShadow: "10px 10px 10px rgba(0,0,0,0.2)" }}>RESET</button>
+                    </div>
                   </>
                 )}            
-                
+
           </ProductCard>
         ))}
       </div>

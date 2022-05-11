@@ -9,8 +9,9 @@ const { Provider } = ProductContext;
 export interface ProductCardHandlers {
   count: number,
   maxCount?: number;
-  product: Product
-  increaseBy : (value : number) => void
+  product: Product, 
+  increaseBy : (value : number) => void, 
+  reset : () => void,
 }
 
 export interface Props {
@@ -23,7 +24,7 @@ export interface Props {
  }
 
  export const ProductCard = ({ children, product, className, style, onChange, initialValues}: Props) => {
-  const{counter,increaseBy} = useProduct({onChange, product, initialValues});
+  const{counter,increaseBy, reset, maxCount} = useProduct({onChange, product, initialValues});
         return (
           <Provider value={{ product, counter,increaseBy }}>
             <div className={`${styles.productCard} ${className}`} style={style}>
@@ -31,7 +32,8 @@ export interface Props {
                 count: counter,
                 maxCount: initialValues?.maxCount, 
                 product,
-                increaseBy
+                increaseBy,
+                reset
                  })
                 }
             </div>

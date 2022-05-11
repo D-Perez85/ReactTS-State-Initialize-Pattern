@@ -21,6 +21,10 @@ interface useProductArgs {
                 onChange && onChange({ count: newValue, product });
             };
 
+            const reset = () =>{
+              setCounter(initialValues?.count || value)
+            }
+
         useEffect(() => {
             if( ! isMounted.current) return; 
             setCounter(value);
@@ -33,5 +37,6 @@ interface useProductArgs {
             counter,
             increaseBy,
             maxCount: initialValues?.maxCount,
+            reset,
         };
     };
