@@ -1,11 +1,13 @@
 export interface Product {
-    id: string;
-    img?: string;
-    title: string;
+    id: string,
+    img?: string,
+    title: string,
   }
 
 export interface ProductContextProps {
-    product: Product
+    product: Product,
+    counter: number,
+    increaseBy: (value:number)=> void,
   }
 
  
