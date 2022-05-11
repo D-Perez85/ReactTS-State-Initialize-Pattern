@@ -1,7 +1,4 @@
-import { ProductCard } from "../components/ProductCard";
-import { ProductImg } from "../components/ProductImage";
-import { ProductTitle } from "../components/ProductTitle";
-import { ProductButtons } from '../components/ProductButtons';
+import { ProductCard, ProductImg, ProductTitle, ProductButtons } from "../components";
 import "../styles/custom-styles.css";
 import { products } from "../data/products";
 
